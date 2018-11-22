@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blade Template Cheatsheet</title>
+    <link rel="stylesheet" href="../style.css">
+    
+</head>
+<body>
+        <div>
+                <ul>
+                        <li><a class="active" href="../index.html">Home</a></li>
+                        <li><a href="laravel.html">Laravel</a></li>
+                        <li><a href="routes.html">Les routes</a></li>
+                        <li><a href="bladesc.html">Blade CheatSheet</a></li>
+                        
+                 </ul>
+        </div>
+
+        <div itemprop="articleBody">
+                <h2>Cheat Sheet</h2>
+<pre class=" language-php"><code class=" language-php"><span class="token comment" spellcheck="true">// Defining A Layout</span>
+@<span class="token keyword">yield</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+@<span class="token function">section</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+@endsection<span class="token operator">/</span>@show
+
+<span class="token comment" spellcheck="true">// Extending A Layout</span>
+@<span class="token keyword">extends</span><span class="token punctuation">(</span><span class="token string">'template'</span><span class="token punctuation">)</span>
+
+@<span class="token function">section</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> content <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> @endsection
+@<span class="token function">section</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'value'</span><span class="token punctuation">)</span>
+@<span class="token function">section</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token variable">$value</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Displaying</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// escaped</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token variable">$name</span> <span class="token keyword">or</span> <span class="token string">'Default'</span><span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// if not set</span>
+<span class="token punctuation">{</span><span class="token operator">!</span><span class="token operator">!</span> <span class="token variable">$name</span> <span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// unescaped</span>
+@<span class="token punctuation">{</span><span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// ignore braces - output as is</span>
+@verbatim <span class="token comment" spellcheck="true">// ignore all braces in this block @endverbatim</span>
+
+<span class="token comment" spellcheck="true">// If Statements</span>
+@<span class="token keyword">if</span><span class="token punctuation">,</span> @<span class="token keyword">elseif</span><span class="token punctuation">,</span> @<span class="token keyword">else</span> <span class="token keyword">and</span> @<span class="token keyword">endif</span>
+@unless<span class="token punctuation">,</span> @endunless
+
+<span class="token comment" spellcheck="true">// Loops</span>
+@<span class="token keyword">for</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@<span class="token keyword">endfor</span>
+@<span class="token keyword">foreach</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@<span class="token keyword">endforeach</span>
+@forelse<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@empty<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@endforelse
+@<span class="token keyword">while</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@<span class="token keyword">endwhile</span>
+@<span class="token keyword">continue</span><span class="token punctuation">,</span> @<span class="token keyword">continue</span><span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">type</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
+@<span class="token keyword">break</span><span class="token punctuation">,</span> <span class="token variable">$break</span><span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">type</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token variable">$loop</span> <span class="token operator">-</span> index<span class="token punctuation">,</span> iteration<span class="token punctuation">,</span> remaining<span class="token punctuation">,</span> count<span class="token punctuation">,</span> first<span class="token punctuation">,</span> last<span class="token punctuation">,</span> depth<span class="token punctuation">,</span> <span class="token keyword">parent</span>
+
+<span class="token comment" spellcheck="true">// Comments</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span><span class="token operator">--</span> This comment will not be present in the rendered <span class="token constant">HTML</span> <span class="token operator">--</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// PHP</span>
+@php<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@endphp
+
+<span class="token comment" spellcheck="true">// Including sub-views</span>
+@<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">'template'</span><span class="token punctuation">)</span>
+@<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token string">'template'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'some'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@<span class="token function">includeIf</span><span class="token punctuation">(</span><span class="token string">'not_exist'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'some'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token string">'data'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// won't an error</span>
+@<span class="token function">each</span><span class="token punctuation">(</span><span class="token string">'jobtemplate'</span><span class="token punctuation">,</span> <span class="token variable">$jobs</span><span class="token punctuation">,</span> <span class="token string">'job'</span><span class="token punctuation">,</span> <span class="token string">'emptyresult'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Stacks</span>
+@<span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>@endpush <span class="token comment" spellcheck="true">// </span>
+@<span class="token function">stack</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// Service injection</span>
+@<span class="token function">inject</span><span class="token punctuation">(</span><span class="token string">'metrics'</span><span class="token punctuation">,</span> <span class="token string">'App\Services\MetricsService'</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span> @metrics<span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">monthlyRevenue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Extending</span>
+Blade<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'datetime'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token variable">$expression</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">"<span class="token delimiter">&lt;?php</span> <span class="token keyword">echo</span> <span class="token punctuation">(</span><span class="token variable">$expression</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'m/d/Y H:i'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter">?&gt;</span>"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+
+            </div>
+</body>
+</html>
