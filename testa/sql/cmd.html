@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CMD de base</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div>
+        <ul>
+                <li><a class="active" href="../index.html">Home</a></li>
+                <li><a  href="sql.html">SQL</a></li>
+         </ul>
+        
+</div>
+
+<br>  <h1>Some of The Most Important SQL Commands</h1><br>
+        <b>SELECT</b> - extracts data from a database<br>
+        <b>UPDATE</b> - updates data in a database<br>
+        <b>DELETE</b> - deletes data from a database<br>
+        <b>INSERT INTO</b> - inserts new data into a database<br>
+        <b>CREATE DATABASE</b> - creates a new database<br>
+        <b>ALTER DATABASE</b> - modifies a database<br>
+        <b>CREATE TABLE</b> - creates a new table<br>
+        <b>ALTER TABLE</b> - modifies a table<br>
+        <b>DROP TABLE</b> - deletes a table<br>
+        <b>CREATE INDEX</b> - creates an index (search key)<br>
+        <b>DROP INDEX</b> - deletes an index<br>
+        
+        <br> <h2>SELECT Syntax</h2>
+        <div class="w3-example">
+            <div class="w3-code notranslate sqlHigh"><span style="color:black">
+            <span style="color:#4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+            <span style="color:#4caf50">FROM</span> <em>table_name</em>; </span></div></div>
+            
+        <br> <h2>SELECT DISTINCT Syntax</h2>
+            <div class="w3-example">
+                <div class="w3-example">
+                    <div class="w3-code notranslate sqlHigh"><span style="color:black"><span style="color:">
+                    </span> <span style="color:#4caf50">SELECT</span> <span style="color:#4caf50">DISTINCT</span> <em>column1</em>,<em> column2, ...</em><br><span style="color:">
+                    </span> <span style="color:#4caf50">FROM</span> <em>table_name</em>; </span></div></div>
+      
+        <br> <h2>WHERE Syntax</h2>
+                <div class="w3-example">
+                    <div class="w3-example">
+                            <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                    <span style="color:#4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+                                    <span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+                                    <span style="color:#4caf50">WHERE</span> <em>condition</em>; </span></div>  
+
+        <br> <h2>AND Syntax</h2>
+                 <div class="w3-example">
+                     <div class="w3-example">
+                            <div class="w3-example">
+                                    <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                    <span style="color:#4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+                                    <span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+                                    <span style="color:#4caf50">WHERE</span> <em>condition1</em> <span style="color:#4caf50">AND</span> <em>condition2</em> <span style="color:#4caf50">AND</span> <em>condition3 ...</em>; </span></div></div>
+
+                                    <br><h3>OR Syntax</h3>
+
+                                    <div class="w3-example">
+                                            <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                            <span style="color:#4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+                                            <span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+                                            <span style="color:#4caf50">WHERE</span> <em>condition1</em> <span style="color:#4caf50">OR</span> <em>condition2</em> <span style="color:#4caf50">OR</span> <em>condition3 ...</em>; </span></div></div>        
+<h3>NOT Syntax</h3>
+<div class="w3-code notranslate sqlHigh"><span style="color:black">
+        <span style="color:4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+        <span style="color:4caf50">FROM</span> <em>table_name</em><br>
+        <span style="color:4caf50">WHERE</span> <span style="color:4caf50">NOT</span> <em>condition</em>; </span></div>                                               
+                                        
+         <br> <h2>ORDER BY  Syntax</h2>
+                <div class="w3-example">
+                    <div class="w3-example">
+                         <div class="w3-example">
+                                <div class="w3-example">
+                                        <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                        <span style="color:#4caf50">SELECT</span> <em>column1</em>,<em> column2, ...</em><br>
+                                        <span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+                                        <span style="color:#4caf50">ORDER</span> <span style="color:#4caf50">BY</span> <em>column1, column2, ... </em><span style="color:#4caf50">ASC</span>|<span style="color:#4caf50">DESC</span>; </span></div></div>
+
+
+          <br> <h2>INSERT INTO Syntax</h2>
+                <div class="w3-example">
+                        <div class="w3-example">
+                            <div class="w3-example">
+                                 <div class="w3-example">
+                                        <div class="w3-example">
+                                                <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                                <span style="color:#4caf50">INSERT</span> <span style="color:#4caf50">INTO</span> <em>table_name</em> (<em>column1</em>,<em> column2</em>,<em> column3</em>, ...)<br>
+                                                <span style="color:#4caf50">VALUES</span> (<em>value1</em>,<em> value2</em>,<em> value3</em>, ...); </span></div></div>  
+
+
+            <br> <h2>IS NULL Syntax</h2>
+                 <div class="w3-example">
+                    <div class="w3-example">
+                        <div class="w3-example">
+                                <div class="w3-example">
+                                        <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                        <span style="color:#4caf50">SELECT</span> <em>column_names<br></em><span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+                                        <span style="color:#4caf50">WHERE</span> <em>column_name</em> <span style="color:#4caf50">IS</span> <span style="color:#4caf50">NULL</span>; </span></div></div>
+
+            <br> <h2>UPDATE Syntax</h2>
+                 <div class="w3-example">
+                    <div class="w3-example">
+                        <div class="w3-example">  
+                                <div class="w3-example">
+                                        <div class="w3-code notranslate sqlHigh"><span style="color:black"><span style="color:">
+                                        </span> <span style="color:#4caf50">UPDATE</span> <em>table_name</em><br><span style="color:">
+                                        </span> <span style="color:#4caf50">SET</span> <em>column1 </em>=<em> value1</em>,<em> column2 </em>=<em> value2</em>, ...<br><span style="color:">
+                                        </span> <span style="color:#4caf50">WHERE</span> <em>condition</em>; </span></div></div>
+
+   
+            <br> <h2>DELETE Syntax</h2>
+                <div class="w3-example">
+                    <div class="w3-example">
+                        <div class="w3-example">  
+                            <div class="w3-example">   
+                                    <div class="w3-code notranslate sqlHigh"><span style="color:black"><span style="color:">
+                                        </span> <span style="color:#4caf50">DELETE</span> <span style="color:#4caf50">FROM</span> <em>table_name </em><span style="color:#4caf50">WHERE</span> <em>condition</em>;<span style="color:">
+                                        </span> </span></div>
+   
+   
+   
+   
+   
+            <br> <h2>The SQL SELECT TOP Clause</h2>
+                <div class="w3-example">
+                    <div class="w3-example">
+                        <div class="w3-example">  
+                            <div class="w3-example"> 
+                        <h3>SQL Server / MS Access Syntax:</h3>   
+                        <div class="w3-example">
+                                <div class="w3-code notranslate sqlHigh"><span style="color:black">
+                                <span style="color:#4caf50">SELECT</span> <span style="color:#4caf50">TOP</span> <em>number</em>|<em><span style="color:#4caf50">percent</span></em> <em>column_name(s)</em><br>
+                                <span style="color:#4caf50">FROM</span> <em>table_name<br></em><span style="color:#4caf50">WHERE</span> <em>condition</em>; </span></div></div>
+                        
+<h3>MySQL Syntax:</h3>
+<div class="w3-code notranslate sqlHigh"><span style="color:black">
+        <span style="color:#4caf50">SELECT</span> <em>column_name(s)</em><br>
+        <span style="color:#4caf50">FROM</span> <em>table_name<br></em><span style="color:#4caf50">WHERE</span> <em>condition</em><br>
+        <span style="color:#4caf50">LIMIT</span> <em>number</em>; </span></div>
+
+<h3>Oracle Syntax:</h3>
+<div class="w3-example">
+        <div class="w3-code notranslate sqlHigh"><span style="color:black">
+        <span style="color:#4caf50">SELECT</span> <em>column_name(s)</em><br>
+        <span style="color:#4caf50">FROM</span> <em>table_name</em><br>
+        <span style="color:#4caf50">WHERE</span> ROWNUM &lt;= <em>number</em>; </span></div></div>
+
+                                    </body>
+</html>
