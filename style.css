@@ -3863,3 +3863,6 @@ h1{
 	text-shadow: 4px 4px 4px #aaa;
 	text-align: center;
 }
+.fab, .fa, .far, .fas{
+	color:#00B449;
+}
