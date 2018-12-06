@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>managePostgreSQL</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+        <div>
+                <ul>
+                        <li><a class="active" href="../index.html">Home</a></li>
+                        <li><a href="sql.html">SQL</a></li>
+                        
+                       
+                </ul>
+        </div>
+        <div id="kb">
+                <h1>How to manage PostgreSQL databases and users from the command line</h1>
+                <h4 id="Creating-PostgreSQL-users">Creating PostgreSQL users</h4>
+                <p>A default PostgresSQL installation always includes the <em>postgres</em> superuser. Initially, you must connect to PostgreSQL as the <em>postgres</em> user until you create other users (which are also referred to as <em>roles</em>).</p>
+                <p>To create a PostgreSQL user, follow these steps:</p>
+                <ol>
+                At the command line, type the following command as the server's <strong>root</strong> user:
+                <pre class="command">su - postgres</pre><p>You can now run commands as the PostgreSQL superuser. To create a user, type the following command:<br></p><pre class="command">createuser --pwprompt</pre>At the <span class="UI">Enter name of role to add:</span> prompt, type the user's name.At the <span class="UI">Enter password for new role:</span> prompt, type a password for the user.At the <span class="UI">Enter it again:</span> prompt, retype the password.At the <span class="UI">Shall the new role be a superuser?</span> prompt, type <span class="user-input">y</span> if you want to grant superuser access. Otherwise, type <span class="user-input">n</span>.At the <span class="UI">Shall the new role be allowed to create databases?</span> prompt, type <span class="user-input">y</span> if you want to allow the user to create new databases. Otherwise, type <span class="user-input">n</span>.At the <span class="UI">Shall the new role be allowed to create more new roles?</span> prompt, type <span class="user-input">y</span> if you want to allow the user to create new users. Otherwise, type <span class="user-input">n</span>.PostgreSQL creates the user with the settings you specified.
+                </ol>
+                <h4 id="Creating-PostgreSQL-databases">Creating PostgreSQL databases</h4>
+                <p>To create a PostgreSQL database, follow these steps:</p>
+                <ol>
+                At the command line, type the following command as the server's <strong>root</strong> user:
+                <pre class="command">su - postgres</pre><p>You can now run commands as the PostgreSQL superuser. To create a database, type the following command. Replace <span style="color:#ff0000;"><em>user</em></span> with the name of the user that you want to own the database, and replace <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database that you want to create:<br></p><pre class="command">createdb -O user dbname</pre>
+                <div class="tip">
+                PostgreSQL users that have permission to create databases can do so from their own accounts by typing the following command, where <span style="color:#ff0000;"><em>dbname</em></span> is the name of the database to create:
+                <pre class="command">createdb dbname</pre></div>
+                </ol>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <h4 id="Adding-an-existing-user-to-a-database">Adding an existing user to a database</h4>
+                <p>To grant an existing user privileges to a database, follow these steps:</p>
+                <ol>
+                Run the <em>psql</em> program as the database's owner, or as the <em>postgres</em> superuser.
+                Type the following command. Replace <span style="color:#ff0000;"><em>permissions</em></span> with the permissions you want to grant, <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database, and <span style="color:#ff0000;"><em>username</em></span> with the user:
+                <pre class="command">GRANT permissions ON DATABASE <em>dbname</em> TO <em>username</em>;</pre>
+                <div class="note">For detailed information about the access privileges that are available in PostgreSQL, please visit <a href="http://www.postgresql.org/docs/9.1/static/sql-grant.html">http://www.postgresql.org/docs/9.1/static/sql-grant.html</a>.</div>The user can now access the database with the specified permissions.
+                </ol>
+                <h4 id="Deleting-PostgreSQL-databases">Deleting PostgreSQL databases</h4>
+                <p>Similar to the <em>createdb</em> command for creating databases, there is the <em>dropdb</em> command for deleting databases. To delete a database, you must be the owner or have superuser privileges.</p>
+                <p>Type the following command, replacing <span style="color:#ff0000;"><em>dbname</em></span> with the name of the database that you want to delete:</p>
+                <pre class="command">dropdb dbname</pre>
+                <div class="warning">The <em>dropdb</em> program does not ask for confirmation before deleting a database. As soon as you press Enter, PostgreSQL deletes the database and all of the data it contains.</div>
+                <h4 id="Deleting-PostgreSQL-users">Deleting PostgreSQL users</h4>
+                <p>Similar to the <em>createuser</em> command for creating users, there is the <em>dropuser</em> command for deleting users.</p>
+                <p>To delete a specific user, type the following command. Replace <span style="color:#ff0000;"><em>username</em></span> with the name of the user that you want to delete:</p>
+                <pre class="command">dropuser username</pre>
+                <div class="important"><p>If the user owns any databases or other objects, you cannot drop the user. Instead, you receive an error message similar to the following:</p><pre class="code">dropuser: removal of role "<em>username</em>" failed: ERROR:&nbsp; role "<em>username</em>" cannot be dropped because some objects depend on it
+                DETAIL:&nbsp; owner of database dbname</pre>
+                <p>You should change the database's owner (or drop the database entirely), and then you can drop the user.</p>
+                </div>
+</body>
+</html>

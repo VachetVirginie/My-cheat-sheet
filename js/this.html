@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>This</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="this.css">
+</head>
+<body>
+    <div>
+        <ul>
+                <li><a class="active" href="../index.html">Home</a></li>
+                <li><a href="js.html">Javascript</a></li>
+                      
+        </ul>
+  </div>
+<h2>Qu'est-ce que This?</h2>
+<p>
+    
+
+   <h3> Le code JavaScript auquel ce mot clé fait référence est l'objet auquel il appartient.<br></h3>
+    
+   <h4> This a des valeurs différentes selon l'endroit où il est utilisé:<br></h4>
+    
+        Dans une méthode, This fait référence à l'objet propriétaire.<br>
+        Seul, This fait référence à l'objet global.<br>
+        Dans une fonction, This fait référence à l'objet global.<br>
+        Dans une fonction, en mode strict, This n'est pas défini.<br>
+        Dans un événement, This fait référence à l'élément qui a reçu l'événement.<br>
+        Des méthodes comme call () et apply () peuvent faire référence à tout objet.<br>
+
+</p>
+
+<article>
+    <p>
+       <h3> This dans une méthode</h3><br>
+
+Dans une méthode objet, this fait référence au "propriétaire" de la méthode.<br>
+
+Dans cet exemple, this fait référence à l'objet personne.<br>
+
+L'objet personne est le propriétaire de la méthode fullName.<br>
+    </p>
+    <div class="w3-example">
+        <h3>Exemple</h3>
+        <div class="w3-code notranslate jsHigh"><span style="color:black">
+        <span style="color:mediumblue">var</span> <b>person</b> = {<br><span style="color:red">
+        </span>  &nbsp; firstName: <span style="color:brown">"John"</span>,<br><span style="color:red">
+        </span>&nbsp;&nbsp;lastName : <span style="color:brown">"Doe"</span>,<br><span style="color:red">
+        </span>  &nbsp; id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;<span style="color:red">5566</span>,<br><span style="color:red">
+        </span>  &nbsp; fullName : <span style="color:mediumblue">function</span>() {<br><span style="color:red">
+        </span>  &nbsp;&nbsp;&nbsp; <span style="color:mediumblue">return</span> <b><span style="color:mediumblue">this</span></b>.<span style="color:black">firstName</span> + <span style="color:brown">" "</span> + <b><span style="color:mediumblue">this</span></b>.<span style="color:black">lastName</span>;<br><span style="color:red">
+        </span>  &nbsp;&nbsp;}<br><span style="color:red">
+        </span>};<span style="color:red">
+        </span> </span></div>
+       
+        </div>
+</article>
+
+<br>
+
+<article>
+ <h3>  This seul</h3> 
+
+Lorsqu'il est utilisé seul, le propriétaire est l'objet global. Il fait donc référence à l'objet global.<br>
+
+Dans une fenêtre de navigateur, l'objet global est [object Window]:
+
+<br>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code notranslate jsHigh"><span style="color:black">
+    <span style="color:mediumblue">var</span> x = <span style="color:mediumblue">this</span>; <span style="color:red">
+    </span> </span></div>
+    </div>
+    <br>
+<h3>strict mode:</h3>
+<div class="w3-example">
+    <h3>Example</h3>
+    <div class="w3-code notranslate jsHigh"><span style="color:black"><span style="color:red">
+    </span>  <span style="color:brown">"use strict"</span>;<br><span style="color:mediumblue">var</span> x = <span style="color:mediumblue">this</span>; <span style="color:red">
+    </span> </span></div>
+    </div>
+</article>
+
+<article>
+
+</article>
+</body>
+</html>

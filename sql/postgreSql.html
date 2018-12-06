@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PostgreSQL Installation</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+        <div>
+                <ul>
+                        <li><a class="active" href="../index.html">Home</a></li>
+                        <li><a href="sql.html">SQL</a></li>
+                        
+                       
+                </ul>
+        </div>
+    <h2 id="installation">Installation</h2>
+
+    <p>Ubuntu's default repositories contain Postgres packages, so we can install these easily using the <code>apt</code> packaging system.</p>
+
+    <p>Since this is our first time using <code>apt</code> in this session, we need to refresh our local package index.  We can then install the Postgres package and a <code>-contrib</code> package that adds some additional utilities and functionality:</p>
+
+    <pre class="code-pre command"><code langs="">
+    sudo apt-get update
+    sudo apt-get install postgresql postgresql-contrib
+    </code></pre>
+
+    <p>La commande « psql » n'a pas été trouvée, mais peut être installée avec :
+
+      <pre> <code> sudo apt install postgresql-client-common </code></pre>
+    </p>
+
+    <p class="para">
+	    Now that we can connect to our <span class="app application">PostgreSQL</span> server, the next step is to 
+	    set a password for the <span class="em emphasis">postgres</span> user.  Run the following command at a terminal 
+	    prompt to connect to the default <span class="app application">PostgreSQL</span> template database:
+    </p>
+    <pre class="contents "><code><span class="cmd command">sudo -u postgres psql template1</code></span>
+    </pre>
+    <p class="para">
+        The above command connects to <span class="app application">PostgreSQL</span> database <span class="em emphasis">template1</span> as user
+        <span class="em emphasis">postgres</span>. Once you connect to the <span class="app application">PostgreSQL</span> server, you will be 
+    at a SQL prompt. You can run the following SQL command at the <span class="app application">psql</span> 
+    prompt to configure the password for the user <span class="em emphasis">postgres</span>.
+    </p>
+    <pre class="contents "><span class="cmd command"><code>ALTER USER postgres with encrypted password 'votre_mot_de_passe';</code></span>
+    </pre>
+    <p class="para">
+	    After configuring the password, edit the file
+            <span class="file filename">/etc/postgresql/9.5/main/pg_hba.conf</span> to use
+            <span class="em emphasis">MD5</span> authentication with the <span class="em emphasis">postgres</span> user:
+    </p>
+    <pre class="contents "><code>local   all         postgres                          md5
+    </code></pre>
+    <p class="para">Enfin, vous devez redémarrer le service <span class="app application">PostgreSQL</span> pour initialiser la nouvelle configuration. À partir d'un terminal, tapez ceci pour redémarrer <span class="app application">PostgreSQL</span>:</p>
+    <pre class="contents "><span class="cmd command"><code>sudo systemctl restart postgresql.service</code></span>
+    </pre>
+    <p class="para">
+	    You can test server connections from other machines by using the <span class="app application">PostgreSQL</span> client.
+    </p>
+    <pre class="contents ">
+        <span><code> sudo apt install postgresql-client</span>
+        <span>psql -h postgres.example.com -U postgres -W</code></span>
+    </pre>
+    
+    <h2>Connection</h2>
+    <p><pre><code>sudo -u postgres psql</pre></code>
+    </p>
+</body>
+</html>
