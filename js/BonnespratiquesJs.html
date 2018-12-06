@@ -1,0 +1,420 @@
+<!DOCTYPE html []>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="MarkdownViewer++" />
+    <title>Bonnes pratiques</title>
+    <style type="text/css">
+
+            
+/* Avoid page breaks inside the most common attributes, especially for exports (i.e. PDF) */
+td, h1, h2, h3, h4, h5, p, ul, ol, li {
+    page-break-inside: avoid; 
+}
+
+        </style>
+     <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+        <div>
+                <ul>
+                        <li><a class="active" href="../index.html">Home</a></li>
+                        <li><a href="https://threejs.org/">three.js</a></li>
+                        <li><a href="this.html">This</a></li>
+                        <li><a href="BonnespratiquesJs.html">Bonnes pratiques </a></li>
+                        
+                       
+                </ul>
+        </div>
+<br>
+    <h1 id="bonnes-pratiques-js">Bonnes pratiques Js</h1>
+    <h2 id="conventions">Conventions</h2>
+    <h3 id="indentation">Indentation</h3>
+    <p>L'éditeur doit être configuré avec <strong>4</strong> espaces pour une tabulation.</p>
+    <h3 id="longueur-de-la-ligne">Longueur de la ligne</h3>
+    <p>Pour éviter d'avoir à utiliser le défilement horizontal , il est préférable de limiter à 80 caractères la longueur de la ligne.</p>
+    <h3 id="commentaire">Commentaire</h3>
+    <p>Lorsque le commentaire s'étend sur plusieurs lignes, on utilisera de préférence le /**/ , le // est plus approprié pour un commentaire adossé à du code.</p>
+    <pre>
+      <code> /*
+  * Ce traitement va déterminer le nombre d'heures travaillées
+  */
+  var coeff = 8;      // le nombre d'heures dans une journée
+
+</code>
+    </pre>
+    <h3 id="nom-des-variables">Nom des variables</h3>
+    <p>Les variables sont écrites en minuscules avec la première lettre de chaque syllabe en majuscule, sauf pour la première (voir CamelCase).</p>
+    <pre>
+      <code> var premierJourDuMois = 1;
+</code>
+    </pre>
+    <p>Les constantes seront plutôt écrites en majuscules, chaque mot séparé par un _.</p>
+    <pre>
+      <code> var NB_DE_JOURS_AN = 365;
+
+</code>
+    </pre>
+    <h3 id="accolades">Accolades</h3>
+    <p>De nombreuses manières de placer les accolades existent. Une variante relativement commune consiste à placer l'accolade ouvrante des fonctions sur la même ligne que la partie déclarative . C'est le style employé par Brian Kernighan et Dennis Ritchie] pour rédiger les exemples dans leur livre Le Langage C, connu comme le premier livre sur le langage C. Cette convention d'écriture est recommandée par Sun pour son langage Java . ( voir Code Conventions for the Java Programming Language )</p>
+    <pre>
+      <code> function une_fonction()
+ {
+    if (x == y) {                // l'accolade est placée sur la même ligne que le "if"
+        something1();
+        something2();
+    } else {                     // idem pour le "else"
+        somethingelse1();
+        somethingelse2();
+    }
+    finalthing();
+ }
+</code>
+    </pre>
+    <h2 id="bonnes-pratiques">Bonnes pratiques</h2>
+    <p>Un code concis est un code qui sera plus lisible, plus rapide et plus simple à adapter par la suite.
+Un bonne approche lors de cette écriture est de considérer que tout ce qui n'est pas indispensable est inutile.</p>
+    <p>Ces exemples pris à partir de cas réels tentent à démontrer tout l'intérêt de cette simplification lors du codage.</p>
+    <h3 id="operateur-ternaire">Opérateur ternaire</h3>
+    <p>Mauvaise pratique</p>
+    <pre>
+      <code>var val;
+   if ( param == true )
+      val = "test2";
+   else
+      val = "test3";
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code> var val = ( param == true ) ? "test2" : "test3";
+</code>
+    </pre>
+    <h3 id="if-imbriques">if imbriqués</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>  if ( val == "test1" ) {
+    if ( val == "test2" ) {
+        doSomething();
+     }
+  }
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>// L'accolade est inutile si le if ne porte que sur une instruction.
+  if ( val == "test1" &amp;&amp; val == "test2" ) 
+     doSomething();
+</code>
+    </pre>
+    <p>Trop de if imbriqués , si le if n'a qu'une seule instruction les accolades ouvrantes et fermantes sont facultatives.</p>
+    <h3 id="tests-multiples-dans-un-if">Tests multiples dans un if</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>  if ( v=="test1" || v=="test2" || v=="test3" || v=="test4" )
+      doSomething();
+  
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>if ( ["test1","test2","test3","test4"].indexOf( v ) != -1 )
+      doSomething();
+</code>
+    </pre>
+    <p>Si une valeur doit être comparée à une liste de plus de 3 valeurs , il est préférable d'utiliser un array</p>
+    <h3 id="ou-logique-remplacant-un-if">ou logique remplaçant un if</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>   if ( val != "" ) 
+      ctx.info( val );
+   else
+      ctx.info ( "$empty" ) ;
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>   ctx.info( val || "$empty" );
+</code>
+    </pre>
+    <p>Une seule ligne suffit , val OU "$empty" se traduit par si val est nulle ( null , "" , 0 ou "undefined" ) alors je prends "$empty"</p>
+    <h3 id="utilisation-du-switch">Utilisation du switch</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>   if ( val == "y" ) {
+       ctx.info( "yes" );
+   } else { 
+      if ( val == "N" ) {
+         ctx.info( "no" );
+      } else { 
+         ctx.info( "?");
+      }
+   }
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>   var display;
+   switch ( val ) {
+     case "y" : display = "yes"; break;
+     case "n" : display = "no" ; break;
+     default  : display = "?"  ; break;
+   }
+   ctx.info( display );
+
+  // ou en supprimant les accolades inutiles
+
+  if ( val == "y" )
+     ctx.info( "yes");
+  else if ( val == "N" )  
+     ctx.info( "no" );
+  else
+     ctx.info( "?"  );
+</code>
+    </pre>
+    <p>Meilleure lisibilité avec le switch</p>
+    <p>###Utilisation d'un objet de transcodage</p>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>function(val) {
+      if (val == "H9999") {
+            return "$zerotp";
+      } 
+      else {
+            if (val == "99.99") {
+                  return "00.00";
+            }
+            else {
+                  if (val == "H0000") {
+                        return "$zero";
+                  };
+            };
+      };
+      return val;
+}
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>function(val){
+    var transco = {
+        "H9999" : "$zerotp",
+        "99.99" : "00.00",
+        "H0000" : "$zero",
+    } ;
+
+    return transco[val] || val ;
+}
+</code>
+    </pre>
+    <p>Trop de niveaux d'indentation, if...else inutiles, tests multiples inutiles</p>
+    <h3 id="acces-successifs-a-un-meme-objet">Accès successifs à un même objet</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>  if ( line["tables"][mtab].bAsso != "25" &amp;&amp; line["tables"][mtab].bAsso != "26" ) 
+    ctx.info( line["tables"][mtab].matricule );
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>  var p = line["tables"][mtab];
+
+  if ( p.bAsso != "25" &amp;&amp; p.bAsso != "26" )
+    ctx.info( p.matricule );
+</code>
+    </pre>
+    <p>On utilise une variable intermédiaire pour accéder à plusieurs propriétés d'un même object</p>
+    <h3 id="incrementation-et-decrementation">Incrémentation et décrémentation</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code> var i=0;
+ i = i + 1;
+ i = i - 1;
+ i = i + 50;
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>  var i=0;
+  i++;              // i == 1
+  i--;              // i == 0
+  i += 50;          // i == 50
+</code>
+    </pre>
+    <p>On utilise l'opérateur ++ ou -- pour incrémenter ou décrémenter une valeur numérique opérateurs
+Point de vigilance : Attention au placement du + +. Les notations i++ / ++i ne sont en effet pas identiques.</p>
+    <p>. i++ : incrémentation à posteriori de l'action du contexte</p>
+    <p>. ++i : incrémentation en amont de l'action du contexte</p>
+    <p>Exemple :</p>
+    <pre>
+      <code>var x = 1;
+print(x++);              // x == 1
+print(x);                // x == 2
+print(++x);              // x == 3
+print(x);                // x == 3
+</code>
+    </pre>
+    <h3 id="syntaxe-dalimentation-dun-objet">Syntaxe d'alimentation d'un objet</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>
+    var param=new Object();
+    param.prop1 = "A";
+    param.prop2 = "B";
+    param.prop3 = "C";
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>    var param = { prop01 : "A" , prop002 : "ABC" , prop0003 : "ABCDE" };
+</code>
+    </pre>
+    <p>ou bien</p>
+    <pre>
+      <code>    var param = {
+                 prop01   : "A"     ,
+                 prop002  : "ABC"   ,
+                 prop0003 : "ABCDE" ,
+                };
+</code>
+    </pre>
+    <p>Pour créer un objet avec des propriétés, la syntaxe JSON est préférable. Si le nombre de propriétés est grand, aller à la ligne pour chaque propriété et aligner les éléments (variables, valeurs, ponctuation) de même nature.</p>
+    <h3 id="factorisation-de-code">Factorisation de code</h3>
+    <p>Mauvaise pratique:</p>
+    <pre>
+      <code>    ctx.info("affichage");
+    if ( val1 ) 
+        ctx.info( val1 / 365 );
+    else
+        ctx.info( "vide");
+    
+    if ( val2 ) 
+        ctx.info( val2 / 365 );
+    else
+        ctx.info( "vide");
+</code>
+    </pre>
+    <p>Bonne pratique:</p>
+    <pre>
+      <code>     ctx.info("affichage");
+     
+     // la fonction peut être directement insérée dans le code  
+     function aff( p ) {  
+        ctx.info( p ? p/365 : "vide" );
+     };
+     
+     aff( val1 );
+     aff( val2 );
+</code>
+    </pre>
+    <p>Si un même traitement doit être effectué plusieurs fois , il est préférable de le déporter dans une fonction.</p>
+    <h2 id="pieges-a-eviter">Pièges à éviter</h2>
+    <h3 id="de-la-mauvaise-utilisation-du-switch">De la mauvaise utilisation du switch</h3>
+    <p>Ce code est faux :</p>
+    <pre>
+      <code>function getTrimestre (mois)
+{
+    switch (mois)
+    {
+        case 1 || 2 || 3 :
+            return 1;
+            break;
+        case 4 || 5 || 6 :
+            return 2;
+            break;
+        case 7 || 8 || 9 :
+            return 3;
+            break;
+        case 10 || 11 || 12 :
+            return 4;
+            break;
+    }
+}
+</code>
+    </pre>
+    <p>Pourquoi ce code est-il faux ? En JavaScript, l'opérateur || ne sert pas à tester plusieurs cas dans un case (et je ne connais pas de langage avec une syntaxe C qui fonctionne de cette manière).</p>
+    <p>En JavaScript, a || b est une expression qui vaut a si a est non vide (différent de 0, false, null, undefined, chaine vide) et qui sinon vaut b. Par exemple, 3 || 5 vaut 3 et null || 5 vaut 5. Donc ici, 1 || 2 vaut 1 et 1 || 2 || 3 vaut également 1. La première branche du switch se résume donc à case 1 : return 1;, la deuxième branche ne traite que 4, la troisième 7 et la quatrième 10. Les autres mois ne seront pas traités. Remarquons aussi que les break sont inutiles et ne pourront pas être exécutés car ils sont tous précédés d'un return.</p>
+    <p>Quelle est la bonne écriture de ce code ? Celle-ci :</p>
+    <pre>
+      <code>function getTrimestre (mois)
+{
+    switch (mois) {
+        case 1  :
+        case 2  :
+        case 3  : return 1;
+ 
+        case 4  :
+        case 5  :
+        case 6  : return 2;
+ 
+        case 7  :
+        case 8  :
+        case 9  : return 3;
+ 
+        case 10 :
+        case 11 :
+        case 12 : return 4;
+ 
+        default : throw "Fonction getTrimestre, le mois [" + mois + "] est invalide. Arrêt du traitement.";
+    }
+}
+</code>
+    </pre>
+    <p>Remarquons que les break ont disparu et qu'une clause default est prévue pour gérer les cas anormaux.</p>
+    <p>Pour une écriture optimale ce switch aurait pu être écrit comme ceci</p>
+    <pre>
+      <code>function getTrimestre (mois) {
+	if ( mois &lt; 1 || mois &gt; 12 ) 
+		throw "Fonction getTrimestre, le mois [" + mois + "] est invalide. Arrêt du traitement.";
+ 
+	return Math.floor((mois - 1) / 3) + 1;
+}
+</code>
+    </pre>
+    <h3 id="confusion-entre-les-tableaux-et-les-objets">Confusion entre les tableaux et les objets</h3>
+    <p>Un tableau n'est pas la même chose qu'un objet. Le tableau possède bien plus de méthodes que l'objet et leur fonctionnement n'est pas complètement identique.</p>
+    <h3 id="bien-utiliser-les-dates-et-les-heures">Bien utiliser les dates et les heures</h3>
+    <p>Piège à éviter</p>
+    <pre>
+      <code>for (var i = 0; i &lt; count; ++i) {
+    var djour = new JdsDate();
+    var tstp = new Date();
+
+    var result1 = calcul1(djour);
+    var result2 = calcul2(tstp);
+}
+</code>
+    </pre>
+    <p>Solution à appliquer:</p>
+    <pre>
+      <code>var djour = new JdsDate();      // N'exécuter qu'une seule fois.
+var tstp = new Date();
+...
+for (var i = 0; i &lt; count; ++i) {
+    var result1 = calcul1(djour);
+    var result2 = calcul2(tstp);
+}
+</code>
+    </pre>
+    <p>Les données temporelles évoluant durant l'exécution, on ne doit les lire qu'une seule fois au début du programme et les stocker dans des variables.</p>
+    <h3 id="formater-un-nombre-avec-des-decimales-sous-forme-de-chaine-de-caracteres">Formater un nombre avec des décimales sous forme de chaine de caractères</h3>
+    <p>Piège à éviter</p>
+    <pre>
+      <code>var m = 20.0998027613
+var m2 = Math.round(mtnet * 100) / 100;     // Résultat 20.1
+var m3 = String(mtnet).replace(".", "");    // Renvoie 201 au lieu de 2010
+</code>
+    </pre>
+    <pre>
+      <code>// Méthode correcte n° 1.
+var m3 = String(Math.round(mtnet * 100));   // 2010
+// Méthode correcte n° 2 plus compliquée.
+var m3 = mtnet.toFixed(2).replace(".", "");
+</code>
+    </pre>
+    <p>On veut que le montant m soit arrondi au centime le plus proche puis écrit dans un fichier avec exactement deux décimales et sans séparateur.</p>
+    <p>Math.round arrondit à l'entier le plus proche, c'est pourquoi on multiplie et divise par 100 pour arrondir les centimes. Mais comme les zéros terminaux ne sont pas significatifs, il sont inexistants dans m2 et donc la transformation en chaine de caractères est fausse.
+De même, si m vaut 52, m2 vaudra aussi 52 et m3 également, alors qu'on attendait 5200.</p>
+    <p>Si l'on réexprime le besoin initial, il s'agit d'obtenir le nombre de centimes d'un montant, en arrondissant au plus proche. Il suffit de prendre le nombre arrondi de centimes et de le transformer en chaine de caractères (méthode 1, plus simple ; la méthode 2 donne le même résultat en plus compliqué).</p>
+  </body>
+</html>
