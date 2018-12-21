@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quizz Javascript</title>
+    <link rel="stylesheet" type="text/css" href="quiz1.css">
+    <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+        <div class="container">
+                <div class="inner">
+        
+                    <h1>How much do you think you know about stuff?</h1>
+        
+                    <h2>Où est-il recommandé d'écrire le code JavaScript ?</h2>
+                        <ul class="simpleList">
+                            <li class="simpleListAnswer correct">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">Dans un fichier .js séparé</span>
+                            </li>
+        
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">Dans l'élément body de notre fichier HTML</span>
+                            </li>
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">Dans l'élément head de notre fichier HTML</span>
+                            </li>
+                            
+                        </ul><!--end simpleList-->
+                        
+                        <div class="answerReveal">
+        
+                            <div class="quizzAnswerC">
+                            <div class="answerHeader">
+                                <h3 class="correctMessage"><i class="fa fa-check-circle "></i>Correct! </h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="bravo">Il est recommandé, pour des raisons de performance, de maintenabilité et de lisibilité du code d'écrire le code JavaScript dans un fichier séparé.</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerC-->
+        
+                        <div class="quizzAnswerF">
+                            <div class="answerHeader">
+                                <h3 class="wrongMessage"><i class="fa fa-times-circle"></i>Sorry</h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="sorry">Loupé mais bien visé...</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerF-->
+                        </div><!--end answerReveal-->
+        
+                    <h2>Quelle est la meilleure façon de déclarer une variable x parmi les suivantes ?</h2>
+                        <ul class="simpleList">
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">x = 25;</span>
+                            </li>
+        
+                            <li class="simpleListAnswer correct">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">var x = "";</span>
+                            </li>
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">var x;</span>
+                            </li>
+                            
+                        </ul><!--end simpleList-->
+                        
+                        <div class="answerReveal">
+        
+                            <div class="quizzAnswerC">
+                            <div class="answerHeader">
+                                <h3 class="correctMessage"><i class="fa fa-check-circle "></i>Correct! </h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="bravo"> Il faut préciser le mot clef var pour déclarer une variable en JavaScript. De plus, nous préférerons généralement attribuer une valeur directement à une variable, ou une chaine de caractères vide à minima.</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerC-->
+        
+                        <div class="quizzAnswerF">
+                            <div class="answerHeader">
+                                <h3 class="wrongMessage"><i class="fa fa-times-circle  "></i>Sorry</h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="sorry">Loupé mais bien visé...</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerF-->
+                        </div><!--end answerReveal-->
+        
+                    <h2>L'opérateur de comparaison == sert à comparer...</h2>
+                        <ul class="simpleList">
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">La différence en valeur simplement</span>
+                            </li>
+        
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">L'égalité en valeur et en type</span>
+                            </li>
+                            <li class="simpleListAnswer correct">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">L'égalité en valeur simplement</span>
+                            </li>
+                            
+                        </ul><!--end simpleList-->
+                        
+                        <div class="answerReveal">
+        
+                            <div class="quizzAnswerC">
+                            <div class="answerHeader">
+                                <h3 class="correctMessage"><i class="fa fa-check-circle "></i>Correct! </h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="bravo">Le signe == sert à effectuer des comparaisons sur les valeurs simplement, tandis que le signe === sert à comparer l'égalité en valeur et en type.</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerC-->
+        
+                        <div class="quizzAnswerF">
+                            <div class="answerHeader">
+                                <h3 class="wrongMessage"><i class="fa fa-times-circle  "></i>Sorry</h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="sorry">Loupé mais bien visé...</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerF-->
+                        </div><!--end answerReveal-->
+                        
+                    <h2>Laquelle de ces trois écritures est la meilleure ?</h2>
+                        <ul class="simpleList">
+        
+                            
+        
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">if(heure <= 12 == true){}</span>
+                            </li>
+                            <li class="simpleListAnswer">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">if(heure > 12 != true){}</span>
+                            </li>
+                            <li class="simpleListAnswer correct">
+                                <span class="fa fa-square-o"></span>
+                                <span class="simpleListText">if(heure <= 12){}</span>
+                            </li>
+                        </ul><!--end simpleList-->
+                        
+                        <div class="answerReveal">
+        
+                            <div class="quizzAnswerC">
+                            <div class="answerHeader">
+                                <h3 class="correctMessage"><i class="fa fa-check-circle "></i>Correct! </h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="bravo"> Il n'est pas nécessaire de préciser le booléen true de manière explicite dans une condition lorsqu'on souhaite comparer le résultat d'une comparaison à celui-ci.</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerC-->
+        
+                        <div class="quizzAnswerF">
+                            <div class="answerHeader">
+                                <h3 class="wrongMessage"><i class="fa fa-times-circle  "></i>Sorry</h3>
+                            </div><!--end answer header-->
+                            <div class="answerText">
+                                <p id="sorry">Loupé mais bien visé...</p>	
+                            </div><!--end asnwerText-->
+                        </div><!--end quizzAnswerF-->
+                        </div><!--end answerReveal-->
+        
+                    
+                    <div class="finalResult">
+                            <h4>How much do you think you know about stuff?</h4>
+                            <div class="resultContainer"></div>
+                            <div id="halfText"></div>
+                            <div id="halfImage"></div>
+                    </div><!--end finalResult-->
+                    
+                </div><!--end inner-->
+            </div><!--end container--> 
+</body>
+</html>
