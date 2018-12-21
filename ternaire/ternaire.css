@@ -1,0 +1,552 @@
+/******** GENERAL STYLES ********/
+html{
+    height: 100%;
+}
+body{
+    font-family: 'Century Gothic', Verdana, Calibri, serif;
+    margin:0px;
+    padding:0px;
+    color: #333;
+    text-align: justify;
+    height: 100%;
+    background-color: RGB(236,237,237);
+}
+
+/******** HEADER ********/
+header{
+    width: 100%;
+}
+.header{
+    height:100px;
+    background-color: white;
+}
+.header img{
+    padding:20px;
+    clear:both;
+}
+
+@media screen and (max-width : 760px){
+    .header img{
+	display:block;
+	margin: 0 auto;
+    }
+    .header h2{
+	display: none;
+    }
+}
+
+.header h2{
+    position: absolute;
+    top:35px;
+    right:30px;
+    font-size:16px;
+    word-spacing:4px;
+    text-transform: uppercase;
+}
+
+/******** MENU ********/
+nav{
+    font-family: 'Century Gothic', 'Source code pro', Verdana, serif;
+    width: 100%;
+    background-color: #424558;
+}
+nav > ul{
+    margin: 0px;
+    padding: 0px;
+}
+nav > ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+nav li{
+    list-style-type: none;
+}
+nav > ul > li{
+    float: left;
+    position: relative;
+}
+nav a{
+    display: inline-block;
+    text-decoration: none;
+}
+nav > ul > li > a{
+    padding: 20px 20px;
+    color: #FFF;
+}
+.submenu{
+    display: none; 
+}
+nav li:hover .submenu{
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    padding: 0px;
+    z-index: 100000;
+}
+.submenu li{
+    border-bottom : 1px solid #CCC;
+}
+.submenu li a{
+    padding: 15px 30px;
+    font-size: 13px;
+    color:#222538;
+    width: 270px;
+}
+nav > ul > li:hover a{
+    padding: 15px 20px 20px 20px;
+}
+.menu-html-css:hover{
+    border-top: 5px solid #e44d26;
+    background-color: RGBa(228, 77, 38, 0.15);
+}
+.menu-js:hover{
+    border-top: 5px solid #f1dc4f;
+    background-color: RGBa(241, 211, 79, 0.15);
+}
+.menu-php-mysql:hover{
+    border-top: 5px solid #576C9E;
+    background-color: RGBa(87, 109, 159, 0.15);
+}
+.menu-prestashop:hover{
+    border-top: 5px solid #df0067;
+    background-color: RGBa(226, 0, 97, 0.15);
+}
+.menu-wordpress:hover{
+    border-top: 5px solid #BBB;
+    background-color: RGBa(200, 200, 200, 0.15);
+}
+.menu-seo:hover{
+    border-top: 5px solid #0B3;
+    background-color: RGBa(0, 160, 40, 0.15);
+}
+.menu-hebergement:hover{
+    border-top: 5px solid #aa131b;
+    background-color: RGBa(220, 120, 40, 0.15);
+}
+.menu-contact:hover{
+    border-top: 5px solid #BBB;
+    background-color: RGBa(220, 220, 220, 0.15);
+}
+.menu-don:hover{
+    border-top: 5px solid #BBB;
+    background-color: RGBa(220, 220, 220, 0.15);
+}
+.submenu li:hover a{
+    color:#EEE;
+    font-weight: bold;
+}
+.menu-html-css .submenu{
+    background-color: RGB(230, 100, 40);
+}
+.menu-html-css .submenu li:hover{
+    background-color: RGB(210, 77, 60);
+}
+.menu-js .submenu{
+    background-color: RGB(251, 216, 99);
+}
+.menu-js .submenu li:hover{
+    background-color: RGB(200, 165, 75);
+}
+.menu-php-mysql .submenu{
+    background-color: RGB(95, 120, 170);
+}
+.menu-php-mysql .submenu li:hover{
+    background-color: RGB(80, 100, 145);
+}
+.menu-prestashop .submenu{
+    background-color: RGB(240, 15, 105);
+}
+.menu-prestashop .submenu li:hover{
+    background-color: RGB(180, 10, 80);
+}
+.menu-wordpress .submenu{
+    background-color: RGB(180, 180, 180);
+}
+.menu-wordpress .submenu li:hover{
+    background-color: RGB(150, 150, 150);
+}
+.menu-seo .submenu{
+    background-color: RGB(0, 170, 50);
+}
+.menu-seo .submenu li:hover{
+    background-color: RGB(0, 140, 35);
+}
+.menu-hebergement .submenu{
+    background-color: RGB(220, 30, 45);
+}
+.menu-hebergement .submenu li:hover{
+    background-color: RGB(180, 25, 40);
+}
+.menu-mobile{
+	color: #fff;
+        background-color: rgba(29, 197, 151, 0.97);
+	text-align: center;
+	padding: 12px 0;
+	display: none;
+}
+nav input[type=checkbox]{
+    display: none;
+}
+nav input[type=checkbox]:checked ~ ul{
+    display: block;
+}
+@media screen and (max-width : 970px){
+    .menu-mobile {
+	display:block;
+    }
+    nav ul{
+	display: none;
+    }
+    nav ul li, nav ul li a {
+	width: 100%;
+        text-align: center;
+    }
+    nav ul li a, nav ul li:hover a{
+        padding: 10px 0px 10px 0px;
+    }
+    nav li:hover .submenu{
+        display: block;
+        position: static;
+    }
+}
+
+/******** FOOTER ********/
+.footer{
+    clear: both;
+    width: 100%;
+    height: 250px;
+    border-top: 2px solid #888;
+    padding-top: 30px;
+    background-color: RGBa(66, 69, 88, 0.85);
+    }
+    
+.footer p{
+    font-size: 13px;
+    text-align: center;
+    color: white;
+}
+.imgs{
+    width: 100%;
+    text-align: center;
+}
+.imgs img{
+    width: 40px;
+    padding: 0px 20px;
+    opacity: 0.5;
+}
+.video{
+    text-align:center;
+}
+
+
+/******** GENERAL HOME SECTION ********/
+.container{
+    overflow: hidden;
+}
+.wrapper-section{
+    width: 1200px;
+    margin: auto;
+}
+#prez-site{
+    width: 100%;
+    margin: 30px auto;
+    border: 2px solid #888;
+    box-shadow:  0px 0px 2px #AAA;
+    background-color: white;
+}
+#prez-site-content{
+    padding: 20px 50px;
+}
+#prez-site-content h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 28px;
+    margin: 20px 0px 50px 0px;
+}
+.block-home{
+    background-color: #FBFBFB;
+    height: 400px;
+    margin: 20px 0px;
+}
+.block-home:hover{
+    box-shadow: 0px 0px 9px #333;
+}
+.block-home img{
+    width: 350px;
+    height: 400px;
+}
+.block-home a:hover{
+    box-shadow: 0px 0px 2px #333;
+}
+.block-desc1 h2, .block-desc2 h2{
+    font-size: 80px;
+    font-weight: 400;
+    margin: 30px 0px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+.block-desc1 p, .block-desc2 p{
+    text-align: center;
+}
+.block-desc1 a, .block-desc2 a{
+    padding: 15px 20px;
+    background-color: #555;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:30px;
+    display: block;
+    width: 280px;
+}
+.block-desc1, .block-desc2{
+    width: 800px;
+    height: 400px;
+}
+.block-desc1, .block-image2{
+    float: left;
+}
+.block-desc2, .block-image1{
+    float: right;
+}
+.block-image1, .block-image2{
+    width: 350px;
+    height: 100%;
+}
+
+@media screen and (min-width: 900px) and (max-width:1199px){
+    .wrapper-section{
+	width: 900px;
+    }
+    .block-home{
+        height: 300px;
+    }
+    .block-home img{
+        width: 260px;
+        height: 300px;
+    }
+    .block-desc1 h2, .block-desc2 h2{
+        font-size: 60px;
+        margin: 20px 0px;
+        letter-spacing: 4px;
+    }
+    .block-desc1 a, .block-desc2 a{
+        padding: 15px 20px;
+        top: 20px;
+    }
+    .block-desc1, .block-desc2{
+        width: 590px;
+        height: 300px;
+    }
+    .block-image1, .block-image2{
+        width: 260px;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width:680px) and (max-width: 899px){
+    .wrapper-section{
+	width: 100%;
+    }
+    #prez-site{
+	display:none;
+    }
+    .block-home{
+	margin: 20px;
+        height: 300px;
+    }
+    .block-desc1 h2, .block-desc2 h2{
+        font-size: 60px;
+        margin: 20px 0px;
+        letter-spacing: 4px;
+    }
+    .block-desc1 a, .block-desc2 a{
+        padding: 15px 20px;
+        top: 20px;
+    }
+    .block-desc1, .block-desc2{
+        width: 100%;
+        height: 300px;
+    }
+    .block-image1, .block-image2{
+        display: none;
+    }
+}
+
+@media screen and (min-width:500px) and (max-width:679px){
+    .wrapper-section{
+	width: 100%;
+    }
+    #prez-site{
+	display:none !important;
+    }
+    .block-home{
+	margin: 20px;
+        height: 350px;
+    }
+    .block-desc1 h2, .block-desc2 h2{
+        font-size: 40px;
+        margin: 20px 0px;
+        letter-spacing: 4px;
+    }
+    .block-desc1 a, .block-desc2 a{
+        padding: 15px 20px;
+        top: 20px;
+    }
+    .block-desc1, .block-desc2{
+        width: 100%;
+        height: 350px;
+    }
+    .block-image1, .block-image2{
+        display: none;
+    }
+}
+@media only screen and (max-width:499px){
+    .wrapper-section{
+	width: 100%;
+    }
+    #prez-site{
+	display:none !important;
+    }
+    .block-home{
+	margin: 20px;
+        height: auto !important;
+    }
+    .block-desc1 h2, .block-desc2 h2{
+        font-size: 20px !important;
+        margin: 20px 0px;
+        letter-spacing: 2px;
+    }
+    .block-desc1 a, .block-desc2 a{
+        padding: 15px 20px;
+        top: 20px;
+	margin-bottom: 10px;
+        font-size: 13px;
+    }
+    .block-desc1, .block-desc2{
+        width: 100%;
+        height: auto !important;
+    }
+    .block-image1, .block-image2{
+        display: none;
+    }
+    #block-html-css{
+        border-left: none !important;
+        border-top : 25px solid #e44d26 !important;
+    }
+    #block-js{
+        border-right: none !important;
+        border-top: 25px solid #f1dc4f !important;
+    }
+    #block-php-mysql{
+        border-left: none !important;
+        border-top : 25px solid #738CC2 !important;
+    }
+    #block-wordpress{
+        border-right: none !important;
+        border-top: 25px solid #C63 !important;
+    }
+    #block-seo{
+        border-left: none !important;
+        border-top: 25px solid #0B3 !important;
+    }
+    #block-hebergement{
+        border-right: none !important;
+        border-top: 25px solid #D23 !important;   
+    }
+}
+
+
+/******SPECIFIC HOME BLOCKS******/
+#block-html-css{
+    overflow:hidden;
+    border-left: 50px solid #e44d26;
+    height:100%;
+}
+#desc-html-css:hover{
+    background-color: RGBa(228,77,36,0.3);
+}
+#desc-html-css a:hover{
+    background-color: #e44d26;
+}
+#block-js{
+    overflow:hidden;
+    border-right: 50px solid #f1dc4f;
+    height:100%;
+}
+#desc-js:hover{
+    background-color: RGBa(241,220,79,0.3);
+}
+#desc-js a:hover{
+    background-color: #c1ac34;
+}
+#block-php-mysql{
+    overflow:hidden;
+    border-left: 50px solid #738CC2;
+    height:100%;
+}
+#desc-php-mysql:hover{
+    background-color: RGBa(95,120,170,0.3);
+}
+#desc-php-mysql a:hover{
+    background-color: #637AAC;
+}
+#block-wordpress{
+    overflow:hidden;
+    border-right: 50px solid #CCC;
+    height:100%;
+}
+#desc-wordpress:hover{
+    background-color: RGBa(210,210,210,0.3);
+}
+#desc-wordpress a:hover{
+    background-color: #BBB;
+}
+#block-seo{
+    overflow:hidden;
+    border-left: 50px solid #0B3;
+    height:100%;
+}
+#desc-seo:hover{
+    background-color: RGBa(0,170,50,0.3);
+}
+#desc-seo a:hover{
+    background-color: #0A2;
+}
+#block-hebergement{
+    overflow:hidden;
+    border-right: 50px solid #D23;
+    height:100%;
+}
+#desc-hebergement:hover{
+    background-color: RGBa(220,30,45,0.3);
+}
+#desc-hebergement a:hover{
+    background-color: #C12;
+}
+
+
+#block-regex{
+    overflow:hidden;
+    border-right: 50px solid #C63;
+    height:100%;
+}
+#desc-regex:hover{
+    background-color: RGBa(210,100,50,0.3);
+}
+#desc-regex a:hover{
+    background-color: #B52;
+}
+#block-prestashop{
+    overflow:hidden;
+    border-left: 50px solid #E17;
+    height:100%;
+}
+#desc-prestashop:hover{
+    background-color: RGBa(240,15,105,0.3);
+}
+#desc-prestashop a:hover{
+    background-color: #D60A69;
+}

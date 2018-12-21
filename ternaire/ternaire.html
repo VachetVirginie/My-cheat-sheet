@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Les ternaires</title>
+    <link rel="stylesheet" type="text/css" href="ternaire.css">
+</head>
+<body>
+        <h1>LES STRUCTURES TERNAIRES EN JAVASCRIPT</h1>
+
+        <h2>Présentation des ternaires</h2>
+
+        <p>Les structures ternaires correspondent à une façon très raccourcie d’écrire ses conditions.</p>
+        <p>Comme les ternaires sont très « denses », certaines personnes en déconseillent l’usage car elles ne les trouvent pas forcément toujours compréhensibles.</p>
+        <p>Voici un premier exemple concret de ternaire :</p>
+        <p><img src="imgs/exemple-structure-ternaire-javascript.png" alt="Premier exemple de structure ternaire"></p>
+        <p><a href="http://jsbin.com/juhako/20/edit?html,output" target="_blank" class="essayer">Essayer ce code !</a></p>
+        <p>Comme vous pouvez le remarquer, cette nouvelle écriture tranche radicalement avec tout ce que nous avons pu voir jusqu’à présent.</p>
+                <p>Dans le cas ci-dessus, nous commençons par déclarer deux variables <code>heure</code> et <code>bon</code>.</p>
+                <p>Le test va s’effectuer sur notre variable <code>heure</code> tandis que notre variable <code>bon</code> va nous servir à stocker le résultat de notre ternaire.</p>
+                <p>On teste donc si notre variable <code>heure</code> contient une valeur inférieure ou égale à 18 ou pas.</p>
+                <p>Si c’est le cas, on stocke dans la variable <code>bon</code> la chaîne de caractères située juste après le point d’interrogation et avant les deux points (c’est-à-dire « Bonjour »).</p>
+                <p>Dans le cas contraire, on stocke la valeur après les deux points (« Bonsoir ») dans notre variable <code>bon</code>.</p>
+                <p>Finalement, on affiche le contenu de notre variable <code>bon</code>.</p>
+                <p>L’utilisation d’une variable conteneur (ici <code>bon</code>) avec les ternaires n’est pas indispensable mais je vous le recommande fortement pour deux raisons : d’une part, en stockant le résultat de la ternaire dans une variable, vous pouvez vous resservir de ce résultat plus tard et d’autre part cela rend la ternaire un peu plus compréhensible.</p>
+                
+                <h2>Utilisation des ternaires</h2>
+                <p>Comme je l’ai précisé plus haut, certaines personnes déconseillent l’utilisation des ternaires car ils les jugent trop peu compréhensibles.</p>
+                <p>Personnellement, je n’ai aucun problème avec les ternaires à partir du moment où le code est bien commenté et où la ternaire est explicite.</p>
+                <p>Le vous laisse donc le choix de les utiliser ou pas, mais dans tous les cas faites l’effort de mémoriser la forme des ternaires au cas où vous en rencontriez dans le futur dans un code.</p>
+                <p>Notez tout de même que vous pourrez gagner beaucoup de temps si vous maitrisez les ternaires.</p>
+                <p>En effet, si nous devions réécrire notre ternaire ci-dessus de façon plus classique, c’est-à-dire avec un <code>if...else</code>, voilà ce que cela donnerait.</p>
+                <p><img src="imgs/condition-vs-ternaire-javascript.png" alt="Condition et ternaire"></p>
+                <p><a href="http://jsbin.com/juhako/21/edit?html,output" target="_blank" class="essayer">Essayer ce code !</a></p>
+</body>
+</html>
