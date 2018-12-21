@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <p id="textarea">Type some text here</p> 
+    <button id="create">Create file</button> 
+    <a download="file.txt" id="download_link" style="display: none">Download</a>
+    
+    <script>
+    (function () {
+      var textFile = null,
+      makeTextFile = function (text) {
+      var data = new Blob([text], {type: 'text/plain'});
+    
+        if (textFile !== null) {
+          window.URL.revokeObjectURL(textFile);
+        }
+    
+          textFile = window.URL.createObjectURL(data);
+    
+           return textFile;
+      };
+    
+    
+     var create = document.getElementById('create'),
+     textarea = document.getElementById('textarea');
+    
+     create.addEventListener('click', function () {
+     var link = document.getElementById('download_link');
+     link.href = makeTextFile(textarea.value);
+     link.style.display = 'block';
+     }, false);
+    
+    })();
+    
+    </script>
+</body>
+</html>
