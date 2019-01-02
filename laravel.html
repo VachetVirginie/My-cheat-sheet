@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Build a modern web application with Laravel and Vue</title>
+  <link rel="profile" href="//gmpg.org/xfn/11" />
+  <link rel="pingback" href="https://blog.pusher.com/xmlrpc.php" />
+	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" id="prism-css" href="https://blog.pusher.com/wp-content/uploads/prism/prism.css?ver=1410795417" type="text/css" media="all">
+<link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  
+<!-- This site is optimized with the Yoast SEO plugin v7.0.3 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="This is part one of a five-part series, taking you through building a modern web app with Laravel and Vue. In part 1, set up your development environment."/>
+<link rel="canonical" href="https://blog.pusher.com/web-application-laravel-vue-part-1/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Build a modern web application with Laravel and Vue" />
+<meta property="og:description" content="This is part one of a five-part series, taking you through building a modern web app with Laravel and Vue. In part 1, set up your development environment." />
+<meta property="og:url" content="https://blog.pusher.com/web-application-laravel-vue-part-1/" />
+<meta property="og:site_name" content="Pusher Blog" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="laravel" />
+<meta property="article:tag" content="php" />
+<meta property="article:tag" content="vuejs" />
+<meta property="article:tag" content="web application" />
+<meta property="article:section" content="Tutorial" />
+<meta property="article:published_time" content="2018-05-09T10:00:31+00:00" />
+<meta property="article:modified_time" content="2018-08-15T00:47:09+00:00" />
+<meta property="og:updated_time" content="2018-08-15T00:47:09+00:00" />
+<meta property="og:image" content="https://blog.pusher.com/wp-content/uploads/2018/04/web-application-laravel-vue-part-1-header.png" />
+<meta property="og:image:secure_url" content="https://blog.pusher.com/wp-content/uploads/2018/04/web-application-laravel-vue-part-1-header.png" />
+<meta property="og:image:width" content="1024" />
+<meta property="og:image:height" content="600" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="This is part one of a five-part series, taking you through building a modern web app with Laravel and Vue. In part 1, set up your development environment." />
+<meta name="twitter:title" content="Build a modern web application with Laravel and Vue" />
+<meta name="twitter:site" content="@pusher" />
+<meta name="twitter:image" content="https://blog.pusher.com/wp-content/uploads/2018/04/web-application-laravel-vue-part-1-header.png" />
+<meta name="twitter:creator" content="@pusher" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Pusher Blog &raquo; Feed" href="http://feeds.feedburner.com/pusherb" />
+<link rel="alternate" type="application/rss+xml" title="Pusher Blog &raquo; Comments Feed" href="https://blog.pusher.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Pusher Blog &raquo; Build a modern web application with Laravel and Vue &#8211; Part 1: Setting up your environment Comments Feed" href="https://blog.pusher.com/web-application-laravel-vue-part-1/feed/" />
+		
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='mashsb-styles-css'  href='https://blog.pusher.com/wp-content/plugins/mashsharer/assets/css/mashsb.min.css?ver=3.4.9' type='text/css' media='all' />
+<style id='mashsb-styles-inline-css' type='text/css'>
+.mashsb-count {color:#cccccc;}.mashicon-twitter {
+  background: transparent;
+  background-image: url(http://blog.pusher.com/wp-content/uploads/2014/09/twitter.png);
+  background-size: cover;
+}
+
+.mashicon-buffer {
+  background: transparent;
+  background-image: url(http://blog.pusher.com/wp-content/uploads/2014/09/buffer.png);
+  background-size: cover;
+}
+
+.mashicon-facebook {
+  background: transparent;
+  background-image: url(http://blog.pusher.com/wp-content/uploads/2014/09/facebook.png);
+  background-size: cover;
+}
+
+.mashsb-count {
+  display: none;
+}
+
+.mashsb-buttons a {
+  margin-left: 10px;
+  min-width: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.mashsb-buttons a:first-of-type {
+  margin-left: 0;
+}
+
+.search .mashsb-container, .home .mashsb-container {
+    padding: 0 11% 10px;
+}
+
+@media only screen and (max-width:768px) {
+    .search .mashsb-container, .home .mashsb-container {
+        padding: 0 5% 10px;
+    }
+}
+</style>
+<link rel='stylesheet' id='publisher-style-css'  href='https://blog.pusher.com/wp-content/themes/publisher/style.css?ver=4.9.9' type='text/css' media='all' />
+<link rel='stylesheet' id='publisher-fontawesome-css-css'  href='https://blog.pusher.com/wp-content/themes/publisher/inc/fonts/fontawesome/font-awesome.css?ver=4.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='https://blog.pusher.com/wp-content/plugins/tablepress/css/default.min.css?ver=1.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://blog.pusher.com/wp-content/plugins/jetpack/css/jetpack.css?ver=5.9' type='text/css' media='all' />
+<script type='text/javascript' src='https://blog.pusher.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://blog.pusher.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mashsb = {"shares":"147","round_shares":"1","animate_shares":"0","dynamic_buttons":"0","share_url":"https:\/\/blog.pusher.com\/web-application-laravel-vue-part-1\/","title":"Build+a+modern+web+application+with+Laravel+and+Vue+%E2%80%93+Part+1%3A+Setting+up+your+environment","image":"https:\/\/blog.pusher.com\/wp-content\/uploads\/2018\/04\/web-application-laravel-vue-part-1-header.png","desc":"In this series, we are going to walk through building modern web applications with Laravel and Vue. We will go from the basics, setting up your environment, to more technical concepts like building endpoints RESTfully \u2026","hashtag":"pusher","subscribe":"content","subscribe_url":"","activestatus":"1","singular":"1","twitter_popup":"1","refresh":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://blog.pusher.com/wp-content/plugins/mashsharer/assets/js/mashsb.min.js?ver=3.4.9'></script>
+<script type='text/javascript' src='https://blog.pusher.com/wp-content/plugins/wp-hide-post/public/js/wp-hide-post-public.js?ver=2.0.10'></script>
+<link rel='https://api.w.org/' href='https://blog.pusher.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.pusher.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.pusher.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://blog.pusher.com/?p=4409' />
+<link rel="alternate" type="application/json+oembed" href="https://blog.pusher.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.pusher.com%2Fweb-application-laravel-vue-part-1%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://blog.pusher.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.pusher.com%2Fweb-application-laravel-vue-part-1%2F&#038;format=xml" />
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><!-- All in one Favicon 4.5 --><link rel="icon" href="https://blog.pusher.com/wp-content/uploads/2016/11/favicon-96x96.png" type="image/png"/>
+			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+CSS (Cascading Style Sheets) is a kind of code that tells the browser how
+to render a web page. You may delete these comments and get started with
+your customizations.
+
+By default, your stylesheet will be loaded after the theme stylesheets,
+which means that your rules can take precedence and override the theme CSS
+rules. Just write here what you want to change, you don't need to copy all
+your theme's stylesheet content.
+*/
+#infinite-handle {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 12px;
+	left: 46%;
+}
+
+.infinite-scroll .infinite-loader, #infinite-handle {
+	position: absolute;
+	bottom: -20px;
+	left: 49%;
+}
+			</style>
+		</head>
+
+<body class="post-template-default single single-post postid-4409 single-format-standard">
+
+
+
+<div id="main" class="site-main clearfix" id="hello-world">
+  <div id="primary">
+    <div id="content" class="site-content container clearfix" role="main">
+
+              
+        <!-- Get post format -->
+        
+<div class="block-standard post-4409 post type-post status-publish format-standard has-post-thumbnail hentry category-tutorial tag-javascript tag-laravel tag-php tag-vuejs tag-web-application">
+			      <a class="block-thumb" href="https://blog.pusher.com/web-application-laravel-vue-part-1/" title="Permalink to Build a modern web application with Laravel and Vue &#8211; Part 1: Setting up your environment" rel="bookmark"><div class="post-header-image"style="background-image: url(https://blog.pusher.com/wp-content/uploads/2018/04/web-application-laravel-vue-part-1-header.png)"></div></a>
+			
+
+	
+<div class="block-titles-wrap">
+	<div class="block-titles">
+					<div class="block-date">
+				<a title="Posts by Neo Ighodaro" rel="author"> Blog du Pusher Neo Ighodaro</a>			</div>
+		
+					<h1 class="block-entry-title"><a href="https://blog.pusher.com/web-application-laravel-vue-part-1/" rel="bookmark">Build a modern web application with Laravel and Vue &#8211; Part 1: Setting up your environment</a></h1>
+		
+		<!-- Jim 2016-09-01: modify theme to add published date -->
+            <div class="block-date" style="margin-top: 3%;">
+             2018        </div>
+    		<!-- Jim 2016-09-01: end modification -->
+	</div><!-- .block-titles -->
+
+	<div class="block-text">
+					<p>In this series, we are going to walk through building modern web applications with Laravel and Vue. We will go from the basics, setting up your environment, to more technical concepts like building endpoints RESTfully and even testing your endpoints.</p>
+<p>In this chapter, we will be setting up an environment for <a href="http://php.net">PHP</a> development, Laravel to be specific. We will also be installing <a href="https://nodejs.org">NodeJS</a> and <a href="http://npmjs.com">NPM</a> as we will need them to manage and build our JavaScript and Vue files.</p>
+<blockquote><p>
+  ⚠️  Development environments differ a lot so it may be impossible to have a perfect setup guide that will be applicable to everyone. Therefore some of the setup guides contained in this article may not apply directly to your own OS or environment but there will be alternatives and I will try to mention any if I know of them. I am building on a Mac so other Mac users will be able to follow along 100%.
+</p></blockquote>
+<h2>Prerequisites</h2>
+<p>To follow along in this series you will need the following:</p>
+<ul>
+<li>Knowledge of PHP.</li>
+<li>Very basic knowledge of the <a href="https://laravel.com">Laravel</a> framework.</li>
+<li>Knowledge of JavaScript and the Vue framework.</li>
+<li>Basic knowledge of <a href="https://nodejs.org/en/">Node.js</a> **and <a href="https://www.npmjs.com/">NPM</a>.</li>
+<li>SQLite installed on your machine. <a href="https://mislav.net/rails/install-sqlite3/">Installation guide</a>.</li>
+</ul>
+<h2>Setting up for PHP development: installing composer</h2>
+<p><img src="https://blog.pusher.com/wp-content/uploads/2018/04/composer-329x300.png" alt="Composer icon" width="329" height="300" class="aligncenter size-medium wp-image-4410" srcset="https://blog.pusher.com/wp-content/uploads/2018/04/composer-329x300.png 329w, https://blog.pusher.com/wp-content/uploads/2018/04/composer.png 400w" sizes="(max-width: 329px) 100vw, 329px" /></p>
+<p><a href="https://getcomposer.org/">Composer</a> is a package manager for PHP applications. It allows you install libraries and packages that are publicly available and make use of it in your own applications. This makes it easy to share reusable code among other PHP developers.</p>
+<p>Laravel uses Composer to pull in the dependent libraries and so we need to install Composer on our machine so we can pull in these packages.</p>
+<h3>Installing Composer on Windows</h3>
+<p>Download and run <a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>. It will install the latest Composer version and set up your <code>PATH</code> so that you can just call <code>composer</code> from any directory in your terminal.</p>
+<h3>Installing on Linux/macOS</h3>
+<p>To install Composer, run the following script in your terminal:</p>
+<pre><code>    $ curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+</code></pre>
+<p>This will download the composer installer and then move it to your <code>/usr/local/bin</code> directory so you can call the <code>composer</code> command from anywhere on your terminal.</p>
+<p>To test your installation, run:</p>
+<pre><code>    $ composer
+</code></pre>
+<p>And you should get output similar to this:</p>
+<pre><code>       ______
+      / ____/___  ____ ___  ____  ____  ________  _____
+     / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+    / /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+    \____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                        /_/
+    Composer version 1.6.3 2018-01-31 16:28:17
+
+    Usage:
+     command [options] [arguments]
+
+    Options:
+     --help (-h)           Display this help message
+     --quiet (-q)          Do not output any message
+     --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+     --version (-V)        Display this application version
+     --ansi                Force ANSI output
+     --no-ansi             Disable ANSI output
+     --no-interaction (-n) Do not ask any interactive question
+     --profile             Display timing and memory usage information
+     --working-dir (-d)    If specified, use the given directory as working directory.
+    ...
+</code></pre>
+<p>This means Composer was successfully installed on your system.</p>
+<h2>Setting up for PHP development: installing Valet (optional)</h2>
+<blockquote><p>
+  ⚠️  Although Valet is only, officially, available to Mac users, there is a Linux port available <a href="https://github.com/cpriego/valet-linux">here</a>.</p>
+<p>  Valet is a Laravel development environment for Mac users. Laravel Valet configures your Mac to always run <a href="https://www.nginx.com/">Nginx</a> in the background when your machine starts. Valet also proxies all requests on the <code>*.test</code> domain to point to sites installed on your local machine. &#8211; <a href="https://laravel.com/docs/5.6/valet">Laravel Valet Documentation</a>
+</p></blockquote>
+<p>Valet is not essential to follow along in this tutorial but is a good to have. With Valet you can quickly set up development environments for Laravel applications.</p>
+<p><strong>Before installation, you should make sure that no other programs such as Apache or Nginx are binding to your local machine&#8217;s port 80.</strong></p>
+<p>To install Valet, run the command below:</p>
+<pre><code>    $ composer global require laravel/valet
+</code></pre>
+<p>When composer is done, run the <code>valet install</code> command. This will configure and install Valet and <a href="https://en.wikipedia.org/wiki/Dnsmasq">DnsMasq</a>, and register Valet&#8217;s daemon to launch when your system starts.</p>
+<p>Once Valet is installed, you can check if it is installed correctly by pinging any <code>*.test</code> domain on your terminal using a command:</p>
+<pre><code>    ping -c 1 foo.test
+</code></pre>
+<p><img src="https://blog.pusher.com/wp-content/uploads/2018/04/trello-clone-ping-foo-test-444x300.png" alt="Ping test screenshot" width="444" height="300" class="aligncenter size-medium wp-image-4411" srcset="https://blog.pusher.com/wp-content/uploads/2018/04/trello-clone-ping-foo-test-444x300.png 444w, https://blog.pusher.com/wp-content/uploads/2018/04/trello-clone-ping-foo-test-888x600.png 888w, https://blog.pusher.com/wp-content/uploads/2018/04/trello-clone-ping-foo-test-500x338.png 500w, https://blog.pusher.com/wp-content/uploads/2018/04/trello-clone-ping-foo-test.png 1000w" sizes="(max-width: 444px) 100vw, 444px" /></p>
+<p>If Valet is installed correctly you should see this domain responding on <code>127.0.0.1</code>. You can read more about Laravel Valet in the <a href="https://laravel.com/docs/5.6/valet">documentation</a>.</p>
+<h2>Setting up for PHP development: installing the Laravel CLI</h2>
+<p><a href="https://laravel.com">Laravel</a> makes building and managing applications easy. It bootstraps a lot of components that work together to create the perfect framework that would let you focus on what is core and important to your application. If this is your first time using Laravel, you may never go back to the old ways again.</p>
+<p>The Laravel CLI can be installed easily with Composer. Run the following command to install it:</p>
+<pre><code>    $ composer global require "laravel/installer"
+</code></pre>
+<p>This command will install the Laravel CLI globally for you. So whenever you want to start a new project with Laravel, you’ll just need to run the following command:</p>
+<pre><code>    $ laravel new appname
+</code></pre>
+<p>When creation of the sample application is complete, you just need to <code>cd appname</code> and then if you are not using Laravel Valet, run the command below to start a PHP server on port 8000:</p>
+<pre><code>    $ php artisan serve
+</code></pre>
+<blockquote><p>
+  💡 You’ll need to press <code>ctrl + c</code> to exit the running Laravel application.
+</p></blockquote>
+<p>If you are using Laravel valet, you can link the project to a <code>.test</code> domain by running the command below in the root of the project:</p>
+<pre><code>    $ valet link appname
+</code></pre>
+<p>Then you can visit <code>appname.test</code> on your browser to see your new Laravel application. It’s that easy.</p>
+<p>To see all the available Laravel CLI commands, run:</p>
+<pre><code>    $ php artisan list
+</code></pre>
+<h3>Useful Laravel CLI commands</h3>
+<p>The <code>make</code> command is the one you’ll use the most. It lets you create different kinds of components for your application. You can use it to create models, controllers, database migrations, and other things which we will not cover in this series.</p>
+<p>To make a new model class, that will be created in the <code>app/</code> directory, run the command:</p>
+<pre><code>    $ php artisan make:model SampleModel
+</code></pre>
+<p>To make a new controller class, that will be created in the <code>app/Http/Controller/</code>directory, run the command:</p>
+<pre><code>    $ php artisan make:controller SampleController
+</code></pre>
+<p>To make a new database migration class, that will be created in the <code>database/migrations/</code> directory, run the command:</p>
+<pre><code>    $ php artisan make:migration create_sample_table
+</code></pre>
+<p>To migrate changes to your database using the migrations you generated earlier, run the following command:</p>
+<pre><code>    $ php artisan migrate
+</code></pre>
+<p>For a really simple Laravel application, these are the commands you may likely use all through. We will learn more about them as we progress through the application. You can also check out the <a href="https://laravel.com/docs/5.6/artisan">console documentation</a>.</p>
+<h2>Should I use Lumen or Laravel</h2>
+<p><a href="https://lumen.laravel.com/">Lumen</a> is a scaled down version of the Laravel framework. It removes a lot of components that it deems not as useful for lightweight development. Because it is made from Laravel, applications built in Lumen can easily be upgraded to Laravel.</p>
+<p>It is mainly designed for building apps with <a href="https://en.wikipedia.org/wiki/Microservices">microservice</a> architecture or building APIs.  In Lumen, sessions, cookies, and templating are not needed so they are taken away, keeping what&#8217;s essential &#8211; routing, logging, caching, queues, validation, error handling and <a href="https://lumen.laravel.com/docs">a few more.</a></p>
+<p>The choice between Lumen and Laravel comes when you are deciding how you want your application to function. If you want to build a single page application using Vue or React, you may decide to use Lumen to power your business logic.</p>
+<p>If you want to integrate them into the application so that a few components are embedded directly in your templates, Laravel is the way to go. With Lumen you will not get the full functionality Laravel has to offer. So if you decide you need the full functionality, choose Laravel over Lumen.</p>
+<p>For this series, we will be using Laravel in its full glory.</p>
+<h2>Installing and configuring dependencies (Passport)</h2>
+<p>Our application is going to be API based, so we need a way to secure our APIs so only recognized users can get into it.</p>
+<h3>Installing Laravel Passport</h3>
+<p><a href="https://laravel.com/docs/5.6/passport">Laravel Passport</a> is the tool for API Authentication. Passport makes authentication a breeze and provides a full OAuth2 server implementation for your Laravel application in a matter of minutes.</p>
+<p>To install passport, run the following command:</p>
+<pre><code>    $ composer require laravel/passport
+</code></pre>
+<h3>API Auth using Laravel Passport</h3>
+<p>There is an extensive article on authentication with Laravel Passport available <a href="https://blog.pusher.com/make-an-oauth2-server-using-laravel-passport/">here</a>. You should give it a read before moving to the next part of this series as it will help you get familiar with Laravel Passport.</p>
+<h2>Conclusion</h2>
+<p>In this part, we considered how you can set up your development environment for building modern web applications. In the next parts, we will build a Laravel application and while building, we will explain some concepts you need to know.</p>
+<p>As we progress with building our application, you will see how we can bring all the tools together to build modern applications using Vue and Laravel. See you in the <a href="http://blog.pusher.com/web-application-laravel-vue-part-2">next part</a>.</p>
+									</div><!-- .block-text -->
+</div><!-- .block-titles-wrap -->
+
+</body>
+</html>
+<script>
+   $(document).ready(function(){
+
+   // social button hovers
+   $('div.share-this a').hover(function(){
+   $(this).addClass('social-hovered');
+   }, function(){
+   $(this).removeClass('social-hovered');
+   });
+
+   // get share counts
+   var urls = [
+   {
+   name: 'facebook',
+   href:'https://graph.facebook.com/?id='
+   },
+   {
+   name: 'twitter',
+   href: 'https://cdn.api.twitter.com/1/urls/count.json?url='
+   },
+   {
+   name: 'buffer',
+   href: 'https://api.bufferapp.com/1/links/shares.json?url='
+   }
+   ]
+   var getShareCount = function(service, url){
+   url += window.location.href;
+   var selector = 'div.' + service + '-share div.bubble p'
+   $.ajax({
+   url: url,
+   method: 'GET',
+   dataType:'jsonp'
+   }).success(function(data){
+   var shareCount = data.shares || data.count || 0;
+   var element = $(selector);
+   element.text(shareCount);
+   })
+   }
+
+   getShareCount('facebook', 'https://graph.facebook.com/?id=');
+   getShareCount('twitter', 'https://cdn.api.twitter.com/1/urls/count.json?url=');
+   getShareCount('buffer', 'https://api.bufferapp.com/1/links/shares.json?url=');
+   //attach share urls to buttons
+   var twitterShareUrl = $('a.mashicon-twitter').attr('href');
+   var facebookShareUrl = $('a.mashicon-facebook').attr('href');
+   var bufferShareUrl = $('a.mashicon-buffer').attr('href');
+   $('div.facebook-share a').attr('href', facebookShareUrl);
+   $('div.twitter-share a').attr('href', twitterShareUrl);
+   $('div.buffer-share a').attr('href', bufferShareUrl);
+
+});
+
+
+</script>
+
+<script>
+
+
+</script>
