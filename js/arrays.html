@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajouter une valeur à un tableau</title>
+</head>
+<body>
+    <h1>
+        Comment ajouter une valeur à un tableau en JavaScript&nbsp;?          
+    </h1>
+
+   <p>
+
+    Une méthode permet d'ajouter une valeur à un tableau. Voici comment.<br>
+
+Il est possible d'ajouter des variables à un tableau qui en contient déjà dans le langage JavaScript. <br>
+La classe Array fournit par défaut les méthodes nécessaires.<br>
+Ces dernières diffèrent selon le type de valeurs que l'on veut ajouter.<br><br>
+
+Pour ajouter une valeur à un tableau,<br>
+il suffit de faire appel à la méthode push().<br>
+Cette méthode retourne la longueur du tableau une fois les nouvelles valeurs ajoutées.<br>
+<br>v
+<code>
+var monTableau = [x, y, z];<br>
+var longueur = monTableau.push(a);<br>
+console.log(monTableau); //Cette commande affichera [x, y, z, a]<br>
+console.log(longueur); //Cette commande affichera 4<br><br>
+</code>
+La méthode push() peut prendre plusieurs valeurs à la suite comme arguments.<br>
+ Elle accepte autant de valeurs que vous le souhaitez.<br>
+  Ces valeurs sont ajoutées à la suite du tableau dans le même ordre que l'ordre des paramètres.<br><br>
+<code>
+var monTableau = [x, y, z];<br>
+var longueur = monTableau.push(a, d, b);<br>
+console.log(monTableau); //Cette commande affichera [x, y, z, a, d, b]<br>
+console.log(longueur); //Cette commande affichera 6<br>
+</code><br><br>
+Si les variables que vous souhaitez ajouter sont contenues dans un tableau,<br>
+il faut alors utiliser la méthode concat().<br>
+Son fonctionnement est différent de la méthode push().<br>
+Elle prend en paramètre le tableau à concaténer et retourne en résultat le tableau résultant de la concaténation.<br>
+Les deux tableaux de départ ne sont pas affectés.<br><br>
+<code>
+var monTableau = [x, y, z];<br>
+var monDeuxiemeTableau = [a, d, b];<br>
+var tableauTotal = monTableau.concat(monDeuxiemeTableau);<br>
+console.log(monTableau); //Cette commande affichera [x, y, z]<br>
+console.log(tableauTotal); //Cette commande affichera [x, y, z, a, d, b]<br>
+</code>
+   </p>
+</body>
+</html>
